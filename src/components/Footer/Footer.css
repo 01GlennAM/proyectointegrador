@@ -1,0 +1,144 @@
+.site-footer {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+
+  /* Se adapta automáticamente al color de superficie del tema activo */
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  padding: 18px 24px 10px;
+  box-sizing: border-box;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+/* Una sola franja: marca | enlaces | redes */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  padding-bottom: 12px;
+}
+
+/* Marca (mismos colores que el logo de la barra superior) */
+.footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  color: var(--text);
+  margin: 0;
+}
+
+.footer-logo span {
+  color: var(--green);
+}
+
+.footer-desc {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  margin: 2px 0 0;
+}
+
+/* Enlaces en línea */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.footer-links a {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--green);
+}
+
+/* Íconos de redes sociales */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icons a:hover,
+.social-icons a:focus-visible {
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Color de marca de cada red al pasar el cursor */
+.social-icons .social-instagram:hover,
+.social-icons .social-instagram:focus-visible {
+  background: linear-gradient(45deg, #f58529, #dd2a7b 50%, #8134af);
+}
+
+.social-icons .social-facebook:hover,
+.social-icons .social-facebook:focus-visible {
+  background: #1877f2;
+}
+
+.social-icons .social-x:hover,
+.social-icons .social-x:focus-visible,
+.social-icons .social-tiktok:hover,
+.social-icons .social-tiktok:focus-visible {
+  background: #111111;
+}
+
+:root[data-theme="dark"] .social-icons .social-x:hover,
+:root[data-theme="dark"] .social-icons .social-tiktok:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+/* Copyright inferior */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+
+/* Móvil: todo centrado y apilado */
+@media (max-width: 640px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+}

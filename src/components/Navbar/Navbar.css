@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@700&family=Syne:wght@800&display=swap');
+
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* Usamos la variable de superficie para que cambie de color con el tema */
+  background: var(--surface); 
+  border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  transition: background-color var(--transition), border-color var(--transition);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  flex-wrap: wrap;
+  /* Usamos la variable de texto general en lugar de un color fijo blanco (#fff) */
+  color: var(--text);
+}
+
+/* --- TÍTULO / LOGO MODERNO Y LLAMATIVO --- */
+.logo-text {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem; 
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  /* Texto sólido con los colores del tema: alto contraste en modo claro y oscuro */
+  color: var(--text);
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.logo-accent {
+  color: var(--green);
+}
+
+.logo-text:hover {
+  transform: scale(1.02);
+}
+
+/* --- BUSCADOR --- */
+.topbar-search input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-color, #cbd5e1);
+  background: var(--bg);
+  color: var(--text);
+  font-size: .92rem;
+  transition: all 0.25s ease;
+}
+
+.topbar-search input::placeholder {
+  color: var(--text-soft, #94a3b8);
+}
+
+.topbar-search input:focus { 
+  outline: none; 
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* --- BOTÓN DE TEMA (DARK/LIGHT) --- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+.theme-toggle:hover { 
+  background: rgba(59, 130, 246, 0.1); 
+  border-color: #3b82f6;
+  transform: scale(1.05);
+}
+
+/* --- ACCIONES Y ENLACES DEL NAV --- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-link { 
+  color: var(--text-soft, #64748b); 
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav-link:hover { 
+  color: #3b82f6; 
+}
+
+.cart-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Contador del carrito */
+.cart-count {
+  display: inline-grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  border-radius: 999px;
+  padding: 0 6px;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 640px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .topbar-search {
+    grid-row: 3;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .nav-actions {
+    grid-row: 2;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
